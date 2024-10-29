@@ -25,7 +25,13 @@ const defaultDataWith6Colors = [
   "#F1F1F1",
 ];
 
-export default function ImageCarousel({ height }: { height: number }) {
+export default function ImageCarousel({
+  height,
+  mode = "parallax",
+}: {
+  height: number;
+  mode?: "parallax" | "horizontal-stack" | "vertical-stack";
+}) {
   const progress = useSharedValue<number>(0);
 
   return (
@@ -43,7 +49,7 @@ export default function ImageCarousel({ height }: { height: number }) {
           width: 400,
           borderRadius: 15,
         }}
-        mode="parallax"
+        mode={mode as any}
         modeConfig={{
           parallaxScrollingScale: 0.9,
           parallaxScrollingOffset: 50,

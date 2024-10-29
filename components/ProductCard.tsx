@@ -5,6 +5,7 @@ import Animated from "react-native-reanimated";
 import Button from "./Button";
 import { useContext } from "react";
 import CartContext from "@/contexts/CartContext";
+import { Link } from "expo-router";
 
 export default function ProductCard({ product }: { product: UIProduct }) {
   const { addItem } = useContext(CartContext);
@@ -20,24 +21,28 @@ export default function ProductCard({ product }: { product: UIProduct }) {
         gap: 5,
       }}
     >
-      <Animated.Image
-        source={product.productImg}
-        resizeMode="contain"
-        style={{
-          width: 160,
-          height: 160,
-          borderRadius: 15,
-        }}
-      />
-      <Text
-        style={{
-          fontSize: 16,
-          fontWeight: "bold",
-          marginTop: 10,
-        }}
-      >
-        {product.name}
-      </Text>
+      <Link href={`/details/${product.productId}`}>
+        <View>
+          <Animated.Image
+            source={product.productImg}
+            resizeMode="contain"
+            style={{
+              width: 160,
+              height: 160,
+              borderRadius: 15,
+            }}
+          />
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: "bold",
+              marginTop: 10,
+            }}
+          >
+            {product.name}
+          </Text>
+        </View>
+      </Link>
       <View
         style={{
           flexDirection: "row",
