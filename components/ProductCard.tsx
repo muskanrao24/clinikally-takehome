@@ -14,7 +14,7 @@ export default function ProductCard({ product }: { product: UIProduct }) {
     <View
       style={{
         flexShrink: 0,
-        flexGrow: 1,
+        flexGrow: 0,
         padding: 10,
         paddingLeft: 15,
         backgroundColor: "white",
